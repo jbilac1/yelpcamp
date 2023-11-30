@@ -1,0 +1,81 @@
+
+
+    <% layout('layouts/boilerplate'); %>
+        <div class="row mb-5">
+            <h1 class="text-center">Edit Campground</h1>
+            <div class="col-12 col-md-6 offset-md-3 mb-5">
+                <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" class="validated-form"
+                    enctype="multipart/form-data" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="title">Title</label>
+                        <input class="form-control" type="text" id="title" value="<%= campground.title%>"
+                            name="campground[title]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="location">Location</label>
+                        <input class="form-control" type="text" id="location" value="<%= campground.location%>"
+                            name="campground[location]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="price">Price</label>
+                        <div class="input-group">
+                            <span class="input-group-text">€</span>
+                            <input type="text" class="form-control" name="campground[price]" id="price"
+                                value="<%= campground.price %>" aria-label="price" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="location">Description</label>
+                        <textarea class="form-control overflow-hidden pt-3" type="text" id="description"
+                            name="campground[description]" rows="4" required><%= campground.description%></textarea>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="image" aria-describedby="image" name="image"
+                                aria-label="Browse" multiple>
+                        </div>
+                    </div>
+                    <div class="mb-3 d-flex flex-wrap">
+                        
+                        <% campground.images.forEach(function(img, i){ %>
+                            <div class="card me-3 ">
+                                <img src="<%= img.thumbnail %>" class="img-thumbnail" alt="...">
+                                <div class="card-body">
+                                    <input type="checkbox" name="deleteImages[]" id="image-<%= i %>"
+                                        class="form-check-input" value="<%= img.filename %>">
+                                    <label for="image-<%= i %>" class="form-check-label">Delete?</label>
+                                </div>
+                            </div>
+
+                            <% }) %>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 col-lg-4 me-auto mb-2 mb-lg-0">
+                            <button class="btn btn-success w-100">Save changes</button>
+                        </div>
+                        <div class="col-12 col-lg-3 ms-auto">
+                            <a class="btn btn-secondary w-100" href="/campgrounds/<%= campground._id%>">Go
+                                back</a>
+
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
