@@ -32,7 +32,10 @@
         max-width: 100%;
         overflow: hidden;
     }
-    
+    .text-home{
+        font-size: 8px;
+        
+    }
 
     .showImg {
         max-height: 400px;
