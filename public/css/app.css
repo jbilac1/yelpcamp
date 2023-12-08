@@ -1,7 +1,11 @@
+body{
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
 .campImg {
     max-height: 250px;
     overflow: hidden;
-}
+  }
 
 .showImg {
     max-height: 450px;
