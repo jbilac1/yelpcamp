@@ -22,8 +22,8 @@ const userRoutes = require('./routes/users');
 const campgrounds = require('./routes/campgrounds');
 const reviews = require('./routes/reviews');
 const mongoSanitize = require('express-mongo-sanitize');
-/* const dbUrl = process.env.DB_URL || 'mongodb+srv://spljif:hnXs8ncmmu228tnN@cluster0.nbymixo.mongodb.net/?retryWrites=true&w=majority'; */
-const dbUrl = "mongodb://127.0.0.1:27017/yelp-camp"
+const dbUrl = process.env.DB_URL || 'mongodb+srv://spljif:hnXs8ncmmu228tnN@cluster0.nbymixo.mongodb.net/?retryWrites=true&w=majority';
+
 
 mongoose.connect(dbUrl, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
     .then(() => {
