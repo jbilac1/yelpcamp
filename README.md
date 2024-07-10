@@ -1,3 +1,0 @@
-# yelpcamp
-
-Learning repo
